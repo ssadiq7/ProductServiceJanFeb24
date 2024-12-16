@@ -2,13 +2,22 @@ package com.scaler.productservicejanfeb24.controllers;
 
 import com.scaler.productservicejanfeb24.dtos.CreateProductDto;
 import com.scaler.productservicejanfeb24.models.Product;
+import com.scaler.productservicejanfeb24.services.ProductService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
 @RestController
-public class ProductController {
+public class ProductController
+{
+
+    private ProductService productService;
+
+    public ProductController(ProductService productService)
+    {
+        this.productService = productService;
+    }
     /*
     * API: methods in controller class
     * APIs are nothing but methods in controller class
@@ -19,16 +28,18 @@ public class ProductController {
      */
     //@RequestMapping(value = "/products", method = RequestMethod.GET) // This is old way of doing
     @GetMapping("/products")
-    public List<Product> getAllProducts() {
-        return null;
+    public List<Product> getAllProducts()
+    {
+        return productService.getAllProducts();
     }
 
     /*
     * GET /products/{id}
      */
     @GetMapping("/products/{id}")
-    public Product getProductById(@PathVariable("id") long id) {
-        return null;
+    public Product getSingleProduct(@PathVariable("id") long id)
+    {
+        return productService.getSingleProduct(id);
     }
 
     /*
@@ -43,7 +54,8 @@ public class ProductController {
     * }
      */
     @PostMapping("/products")
-    public void createProduct(CreateProductDto createProductDto) {
-
+    public void createProduct(CreateProductDto createProductDto)
+    {
+        productService.createProduct(createProductDto);
     }
 }
