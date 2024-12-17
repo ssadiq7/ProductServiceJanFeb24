@@ -18,6 +18,7 @@ public class ProductController
     { // Dependency Injection
         this.productService = productService;
     }
+    
     /*
     * API: methods in controller class
     * APIs are nothing but methods in controller class
@@ -26,6 +27,7 @@ public class ProductController
     /*
     * GET /products: Get all products
      */
+    
     //@RequestMapping(value = "/products", method = RequestMethod.GET) // This is old way of doing
     @GetMapping("/products")
     public List<Product> getAllProducts()
