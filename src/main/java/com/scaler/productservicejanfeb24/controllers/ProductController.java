@@ -62,6 +62,6 @@ public class ProductController
     @PostMapping("/products")
     public Product createProduct(@RequestBody CreateProductDto createProductDto)
     {
-        return productService.CreateProduct(createProductDto);
+        return productService.createProduct(createProductDto);
     }
 }

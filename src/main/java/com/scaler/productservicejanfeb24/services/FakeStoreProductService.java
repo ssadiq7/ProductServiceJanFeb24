@@ -54,7 +54,7 @@ public class FakeStoreProductService implements ProductService
      * This is dummy a dummy endpoint. It does nothing.
      * */
     @Override
-    public Product CreateProduct(CreateProductDto createProductDto) {
+    public Product createProduct(CreateProductDto createProductDto) {
         FakeStoreProductDto fakeStoreProductDto = new FakeStoreProductDto();
 
         fakeStoreProductDto.setTitle(createProductDto.getTitle());
